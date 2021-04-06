@@ -20,7 +20,7 @@
         Header set Cache-Control "max-age=28800, public"
     </filesMatch>
 
-    RewriteBase /test_crud/
+    RewriteBase /sprnva-argon/
 
     RewriteEngine On
 

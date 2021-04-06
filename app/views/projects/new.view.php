@@ -10,7 +10,5 @@ require __DIR__ . '/../layouts/head.php'; ?>
 	</div>
 </div>
 
-<?= $project_details['project_code'] ?>
-
 
 <?php require __DIR__ . '/../layouts/footer.php'; ?>

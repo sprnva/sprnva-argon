@@ -4,6 +4,12 @@ use App\Core\Auth;
 
 require __DIR__ . '/../layouts/head.php'; ?>
 
+<div class="row">
+	<div class="col-md-12 pb-2">
+		<a href="<?= route('project/add') ?>" class="btn btn-secondary btn-sm text-rigth"><i class="fas fa-plus"></i> Add Project</a>
+	</div>
+</div>
+
 <div class="row pb-3">
 	<div class="col">
 		<div class="card">

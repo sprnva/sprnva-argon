@@ -23,4 +23,10 @@ class ProjectController
 		$project_details = App::get('database')->select("*", 'projects', "id='$id'");
 		return view('projects/detail', compact('project_details', 'pageTitle'));
 	}
+
+	public function add()
+	{
+		$pageTitle = "Project Add";
+		return view('projects/new', compact('pageTitle'));
+	}
 }

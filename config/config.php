@@ -12,7 +12,7 @@ return [
 	],
 
 	'app' => [
-		'base_url' => 'test_crud',
+		'base_url' => 'sprnva-argon',
 		'name' => 'CRUDz'
 	]
 ];
