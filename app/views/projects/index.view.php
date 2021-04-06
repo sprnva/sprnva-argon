@@ -5,13 +5,14 @@ use App\Core\Auth;
 require __DIR__ . '/../layouts/head.php'; ?>
 
 <div class="row">
-	<div class="col-md-12 pb-2">
+	<div class="col-md-12 pb-3">
 		<a href="<?= route('project/add') ?>" class="btn btn-secondary btn-sm text-rigth"><i class="fas fa-plus"></i> Add Project</a>
 	</div>
 </div>
 
 <div class="row pb-3">
 	<div class="col">
+		<?= msg('ALERT_MSG', "success"); ?>
 		<div class="card">
 			<!-- Light table -->
 			<div class="table-responsive">
@@ -30,7 +31,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 								<td><a href="<?= route('project/detail', $projects->id) ?>"><?= $projects->project_code ?></a></td>
 								<td><?= $projects->project_name ?></td>
 								<td><?= $projects->description ?></td>
-								<td></td>
+								<td><a href="<?= route('project/delete', $projects->id) ?>" style="color: red;"><i class="far fa-trash-alt"></i></a></td>
 							</tr>
 						<?php endforeach ?>
 					</tbody>
