@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Core\App;
+use App\Core\Auth;
 use App\Core\Request;
 
 class ProjectController
@@ -43,7 +44,8 @@ class ProjectController
 			'project_code' => $request['proj-code'],
 			'project_name' => $request['proj-name'],
 			'description' => $request['proj-description'],
-			'date_added' => date("Y-m-d H:i:s")
+			'date_added' => date("Y-m-d H:i:s"),
+			'user_id' => Auth::user('id')
 		];
 
 		App::get('database')->insert("projects", $project_form);
