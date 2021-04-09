@@ -44,9 +44,10 @@ class QueryBuilder
 	 *
 	 * @param string $table
 	 */
-	public function selectLoop($table)
+	public function selectLoop($column = '*', $table, $params = '')
 	{
-		$statement = $this->pdo->prepare("select * from {$table}");
+		$inject = ($params == '') ? "" : "WHERE $params";
+		$statement = $this->pdo->prepare("select {$column} from {$table} {$inject}");
 		$statement->execute();
 		return $statement->fetchAll(PDO::FETCH_CLASS);
 	}
@@ -167,11 +168,21 @@ class QueryBuilder
 	 */
 	public function query($query, $fetch = "N")
 	{
-		$statement = $this->pdo->prepare($query);
-		$statement->execute();
+		try {
+			$statement = $this->pdo->prepare($query);
+			$statement->execute();
 
-		if ($fetch == "Y") {
-			return $statement->fetchAll(PDO::FETCH_CLASS);
+			if ($fetch == "Y") {
+				return $statement->fetchAll(PDO::FETCH_CLASS);
+			} else {
+				if ($statement) {
+					return 1;
+				} else {
+					return 0;
+				}
+			}
+		} catch (Exception $e) {
+			die('something went wrong!');
 		}
 	}
 }

@@ -13,6 +13,9 @@ return [
 
 	'app' => [
 		'base_url' => 'sprnva-argon',
-		'name' => 'CRUDz'
+		'name' => 'Sprnva-argon',
+
+		// choices to encode: windows, macOS, linux
+		'OS' => 'windows',
 	]
 ];

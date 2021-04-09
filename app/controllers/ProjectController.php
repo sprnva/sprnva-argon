@@ -14,7 +14,7 @@ class ProjectController
 	{
 		$pageTitle = "Projects";
 
-		$project_datas = App::get('database')->selectLoop('projects');
+		$project_datas = App::get('database')->selectLoop('*', 'projects');
 		return view('projects/index', compact('project_datas', 'pageTitle'));
 	}
 
