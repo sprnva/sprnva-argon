@@ -2,7 +2,7 @@
 
 return [
 	'database' => [
-		'name' => 'test_crud',
+		'name' => 'sprnva_argon',
 		'username' => 'root',
 		'password' => '',
 		'connection' => '127.0.0.1',
@@ -16,6 +16,6 @@ return [
 		'name' => 'Sprnva-argon',
 
 		// choices to encode: windows, macOS, linux
-		'OS' => 'windows',
+		'OS' => 'macOS',
 	]
 ];

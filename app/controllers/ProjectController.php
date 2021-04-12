@@ -13,16 +13,23 @@ class ProjectController
 	public function index()
 	{
 		$pageTitle = "Projects";
+		$user_id = Auth::user('id');
 
-		$project_datas = App::get('database')->selectLoop('*', 'projects');
+		$project_datas = App::get('database')->selectLoop('*', 'projects', "user_id = '$user_id'");
 		return view('projects/index', compact('project_datas', 'pageTitle'));
 	}
 
 	public function detail($id)
 	{
 		$pageTitle = "Project Detail";
+		$user_id = Auth::user('id');
 
-		$project_details = App::get('database')->select("*", 'projects', "id='$id'");
+		$project_details = App::get('database')->select("*", 'projects', "id='$id' AND user_id = '$user_id'");
+
+		if (!$project_details) {
+			redirect('project');
+		}
+
 		return view('projects/detail', compact('project_details', 'pageTitle'));
 	}
 
@@ -54,7 +61,8 @@ class ProjectController
 
 	public function delete($id)
 	{
-		App::get('database')->delete('projects', "id = '$id'");
+		$user_id = Auth::user('id');
+		App::get('database')->delete('projects', "id = '$id' AND user_id = '$user_id'");
 		redirect('project', "Deleted successfully.");
 	}
 
