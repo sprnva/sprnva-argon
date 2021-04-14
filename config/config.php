@@ -12,8 +12,11 @@ return [
 	],
 
 	'app' => [
-		'base_url' => 'sprnva-argon',
+		'base_url' => 'sprnva-argon/',
 		'name' => 'Sprnva-argon',
+
+		// choices: development, production
+		'environment' => 'development',
 
 		// choices to encode: windows, macOS, linux
 		'OS' => 'macOS',
