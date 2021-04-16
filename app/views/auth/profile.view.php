@@ -4,7 +4,7 @@ use App\Core\App; ?>
 
 <div class="row pb-3">
     <div class="col-12">
-        <?= msg('VALIDATION_ERROR'); ?>
+        <?= msg('RESPONSE_MSG'); ?>
     </div>
     <div class="col-md-4">
         <h5>Profile Information</h5>

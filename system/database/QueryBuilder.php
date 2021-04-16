@@ -44,7 +44,7 @@ class QueryBuilder
 	 *
 	 * @param string $table
 	 */
-	public function selectLoop($column = '*', $table, $params = '')
+	public function selectLoop($column, $table, $params = '')
 	{
 		$inject = ($params == '') ? "" : "WHERE $params";
 		$statement = $this->pdo->prepare("select {$column} from {$table} {$inject}");
@@ -84,7 +84,7 @@ class QueryBuilder
 				}
 			}
 		} catch (Exception $e) {
-			die('something went wrong!');
+			throwException("Whoops! error occurred.", $e);
 		}
 	}
 
@@ -123,7 +123,7 @@ class QueryBuilder
 				return 0;
 			}
 		} catch (Exception $e) {
-			die('something went wrong!');
+			throwException("Whoops! error occurred.", $e);
 		}
 	}
 
@@ -156,7 +156,7 @@ class QueryBuilder
 				return 0;
 			}
 		} catch (Exception $e) {
-			die('something went wrong!');
+			throwException("Whoops! error occurred.", $e);
 		}
 	}
 
@@ -182,7 +182,7 @@ class QueryBuilder
 				}
 			}
 		} catch (Exception $e) {
-			die('something went wrong!');
+			throwException("Whoops! error occurred.", $e);
 		}
 	}
 }

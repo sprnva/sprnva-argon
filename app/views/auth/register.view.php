@@ -13,13 +13,18 @@ use App\Core\App;
         <?= ucfirst($pageTitle) . " | " . App::get('config')['app']['name']; ?>
     </title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?= public_url('/assets/sprnva/css/bootstrap.min.css') ?>">
 
     <style>
         body {
             background-color: #eef1f4;
+            font-weight: 350;
         }
     </style>
+
+    <script src="<?= public_url('/assets/sprnva/js/jquery-3.6.0.min.js') ?>"></script>
+    <script src="<?= public_url('/assets/sprnva/js/popper.min.js') ?>"></script>
+    <script src="<?= public_url('/assets/sprnva/js/bootstrap.min.js') ?>"></script>
 </head>
 
 <body>
@@ -31,8 +36,7 @@ use App\Core\App;
                 </div>
                 <div class="card mt-4" style="background-color: #fff; border: 0px; border-radius: 8px; box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);">
                     <div class="card-body">
-                        <?= msg('ALERT_MSG', "success"); ?>
-                        <?= msg('VALIDATION_ERROR'); ?>
+                        <?= msg('RESPONSE_MSG'); ?>
 
 
                         <form method="POST" action="<?= route('register') ?>">
@@ -65,10 +69,6 @@ use App\Core\App;
             </div>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 

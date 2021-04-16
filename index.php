@@ -19,14 +19,11 @@ require 'system/bootstrap.php';
  * direct the routes
  * 
  */
-Router::load('config/routes/web.php')
+Router::load('system/Routes.php')
 	->direct(
 		// request uri
 		Request::uri(),
 
 		// the method use of the uri
-		Request::method(),
-
-		// protect routes if not authenticated
-		Request::authProtection(true)
+		Request::method()
 	);
