@@ -12,15 +12,18 @@ $config = [
     'base_url' => 'sprnva/',
     'app_name' => 'SPRNVA',
 
+    // choices: windows, macOS, linux
+    'os' => 'windows',
+
     // choices: development, production
     'environment' => 'development',
 
-    // choices to encode: windows, macOS, linux
-    'os' => 'macOS',
-
     // EMAIL
     'smtp_host' => '',
-    'smtp_sender' => '',
-    'smtp_password' => ''
+    'smtp_username' => '',
+    'smtp_password' => '',
+    'smtp_auth' => true,
+    'smtp_auto_tls' => true,
+    'smtp_port' => 25
 
 ];
