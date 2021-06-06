@@ -38,18 +38,19 @@ use App\Core\App;
 
                         <?= msg('RESPONSE_MSG'); ?>
 
-                        <form method="POST" action="<?= route('register') ?>">
+                        <form method="POST" action="<?= route('/register') ?>">
+                            <?= csrf() ?>
                             <div class="form-group">
                                 <label for="email">E-mail</label>
-                                <input type="email" class="form-control" name="email" autocomplete="off" autofocus>
+                                <input type="email" class="form-control" name="email" autocomplete="off" value="<?= old('email') ?>" autofocus>
                             </div>
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" autocomplete="off">
+                                <input type="text" class="form-control" name="name" value="<?= old('name') ?>" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control" name="username" autocomplete="off">
+                                <input type="text" class="form-control" name="username" value="<?= old('username') ?>" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -57,7 +58,7 @@ use App\Core\App;
                             </div>
 
                             <div class="d-flex justify-content-end">
-                                <a href="<?= route('login'); ?>" style="font-size: 18px;">
+                                <a href="<?= route('/login'); ?>" style="font-size: 18px;">
                                     <small id="emailHelp" class="form-text text-muted mb-1">Already registered?</small>
                                 </a>
                                 <button type="submit" class="btn btn-secondary btn-sm text-rigth ml-2">REGISTER</button>

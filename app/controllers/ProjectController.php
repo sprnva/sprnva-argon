@@ -16,7 +16,7 @@ class ProjectController
 		$user_id = Auth::user('id');
 
 		$project_datas = App::get('database')->selectLoop('*', 'projects', "user_id = '$user_id'");
-		return view('projects/index', compact('project_datas', 'pageTitle'));
+		return view('/projects/index', compact('project_datas', 'pageTitle'));
 	}
 
 	public function detail($id)
@@ -27,17 +27,17 @@ class ProjectController
 		$project_details = App::get('database')->select("*", 'projects', "id='$id' AND user_id = '$user_id'");
 
 		if (!$project_details) {
-			redirect('project');
+			redirect('/project');
 		}
 
-		return view('projects/detail', compact('project_details', 'pageTitle'));
+		return view('/projects/detail', compact('project_details', 'pageTitle'));
 	}
 
 	public function add()
 	{
 		$pageTitle = "Project Add";
 		$projectCode = "PROJ-" . strtoupper(randChar(8));
-		return view('projects/new', compact('projectCode', 'pageTitle'));
+		return view('/projects/new', compact('projectCode', 'pageTitle'));
 	}
 
 	public function store()
@@ -56,14 +56,14 @@ class ProjectController
 		];
 
 		App::get('database')->insert("projects", $project_form);
-		redirect('project/add', ["Added successfully.", 'success']);
+		redirect('/project/add', ["Added successfully.", 'success']);
 	}
 
 	public function delete($id)
 	{
 		$user_id = Auth::user('id');
 		App::get('database')->delete('projects', "id = '$id' AND user_id = '$user_id'");
-		redirect('project', ["Deleted successfully.", 'success']);
+		redirect('/project', ["Deleted successfully.", 'success']);
 	}
 
 	public function updateDetail($id)
@@ -80,6 +80,6 @@ class ProjectController
 		];
 
 		App::get('database')->update("projects", $update_project_form, "id = '$id'");
-		redirect('project/detail/' . $id, ["Updated successfully.", 'success']);
+		redirect('/detail/' . $id, ["Updated successfully.", 'success']);
 	}
 }

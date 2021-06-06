@@ -6,7 +6,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 
 <div class="row">
 	<div class="col-md-12">
-		<a href="<?= route('project') ?>" class="btn btn-success btn-sm text-rigth"><i class="fas fa-arrow-left"></i> Back</a>
+		<a href="<?= route('/project') ?>" class="btn btn-success btn-sm text-rigth"><i class="fas fa-arrow-left"></i> Back</a>
 	</div>
 </div>
 
@@ -16,7 +16,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 			<div class="card-body">
 				<?= msg('RESPONSE_MSG'); ?>
 
-				<form method="POST" action="<?= route('project/detail', $project_details['id']) ?>">
+				<form method="POST" action="<?= route('/project/detail', $project_details['id']) ?>">
 					<div class="form-group">
 						<label for="username">Project Code</label>
 						<input type="text" class="form-control" name="edit-proj-code" autocomplete="off" value="<?= $project_details['project_code'] ?>">

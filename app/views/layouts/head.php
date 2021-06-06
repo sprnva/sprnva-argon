@@ -16,12 +16,12 @@ use App\Core\Auth;
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
 	<!-- Icons -->
-	<link rel="stylesheet" href="<?= public_url('/assets/vendor/nucleo/css/nucleo.css') ?>" type="text/css">
-	<link rel="stylesheet" href="<?= public_url('/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') ?>" type="text/css">
+	<link rel="stylesheet" href="<?= public_url('/assets/argon/vendor/nucleo/css/nucleo.css') ?>" type="text/css">
+	<link rel="stylesheet" href="<?= public_url('/assets/argon/vendor/@fortawesome/fontawesome-free/css/all.min.css') ?>" type="text/css">
 
 	<!-- Argon CSS -->
-	<link rel="stylesheet" href="<?= public_url('/assets/css/argon.css?v=1.2.0') ?>" type="text/css">
-	<link rel="stylesheet" href="<?= public_url('/assets/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" type="text/css">
+	<link rel="stylesheet" href="<?= public_url('/assets/argon/css/argon.css?v=1.2.0') ?>" type="text/css">
+	<link rel="stylesheet" href="<?= public_url('/assets/argon/vendor/datatables.net-bs4/css/dataTables.bootstrap4.min.css') ?>" type="text/css">
 
 	<style>
 		body {
@@ -47,19 +47,19 @@ use App\Core\Auth;
 	</style>
 
 	<!-- Core -->
-	<script src="<?= public_url('/assets/vendor/jquery/dist/jquery.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/js-cookie/js.cookie.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/datatables.net-bs4/js/jquery.dataTables.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/jquery/dist/jquery.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/js-cookie/js.cookie.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/jquery.scrollbar/jquery.scrollbar.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/datatables.net-bs4/js/jquery.dataTables.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/datatables.net-bs4/js/dataTables.bootstrap4.min.js') ?>"></script>
 
 	<!-- Optional JS -->
-	<script src="<?= public_url('/assets/vendor/chart.js/dist/Chart.min.js') ?>"></script>
-	<script src="<?= public_url('/assets/vendor/chart.js/dist/Chart.extension.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.min.js') ?>"></script>
+	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.extension.js') ?>"></script>
 	<!-- Argon JS -->
-	<script src="<?= public_url('/assets/js/argon.js?v=1.2.0') ?>"></script>
+	<script src="<?= public_url('/assets/argon/js/argon.js?v=1.2.0') ?>"></script>
 </head>
 
 <body>
@@ -94,13 +94,13 @@ use App\Core\Auth;
 					<!-- Nav items -->
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" href="<?= route('home') ?>">
+							<a class="nav-link active" href="<?= route('/home') ?>">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Dashboard</span>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="<?= route('project') ?>">
+							<a class="nav-link" href="<?= route('/project') ?>">
 								<i class="ni ni-planet text-orange"></i>
 								<span class="nav-link-text">Projects</span>
 							</a>
@@ -143,15 +143,19 @@ use App\Core\Auth;
 								<div class="dropdown-header noti-title">
 									<h6 class="text-overflow m-0">Welcome!</h6>
 								</div>
-								<a href="<?= route('profile') ?>" class="dropdown-item">
+								<a href="<?= route('/profile') ?>" class="dropdown-item">
 									<i class="ni ni-single-02"></i>
 									<span>My profile</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a href="<?= route('logout') ?>" class="dropdown-item">
+								<a href="<?= route('/logout') ?>" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 									<i class="ni ni-user-run"></i>
 									<span>Logout</span>
 								</a>
+
+								<form id="logout-form" action="<?= route('/logout') ?>" method="POST" style="display:none;">
+									<?= csrf() ?>
+								</form>
 							</div>
 						</li>
 					</ul>

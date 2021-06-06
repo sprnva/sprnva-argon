@@ -15,15 +15,15 @@ class RegisterController
         Auth::isAuthenticated();
 
         $pageTitle = "Register";
-        return view('auth/register', compact('pageTitle'));
+        return view('/auth/register', compact('pageTitle'));
     }
 
     public function store()
     {
-        $request = Request::validate('register', [
-            'email' => 'required',
-            'username' => 'required',
-            'password' => 'required',
+        $request = Request::validate('/register', [
+            'email' => ['required', 'email'],
+            'username' => ['required'],
+            'password' => ['required'],
         ]);
 
         $register_user = [
@@ -36,6 +36,6 @@ class RegisterController
         ];
 
         App::get('database')->insert("users", $register_user);
-        redirect('register', ["Success register", "success"]);
+        redirect('/register', ["Success register", "success"]);
     }
 }
