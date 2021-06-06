@@ -32,13 +32,13 @@ require __DIR__ . '/../layouts/head.php'; ?>
 								<td><?= $projects->project_name ?></td>
 								<td><?= $projects->description ?></td>
 								<td style="vertical-align: middle;text-align: center;">
-									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
 										<i class="far fa-eye"></i>
 									</a>
-									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
 										<i class="far fa-edit"></i>
 									</a>
-									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
 										<i class="far fa-trash-alt"></i>
 									</a>
 								</td>
