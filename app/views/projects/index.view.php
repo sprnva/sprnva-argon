@@ -16,13 +16,13 @@ require __DIR__ . '/../layouts/head.php'; ?>
 		<div class="card">
 			<!-- Light table -->
 			<div class="table-responsive">
-				<table class="table align-items-center table-striped table-bordered" id="projectTable">
+				<table class="table align-items-center table-striped" id="projectTable">
 					<thead class="thead-light">
 						<tr>
 							<th scope="col" class="sort" data-sort="name">Project Code</th>
 							<th scope="col" class="sort" data-sort="budget">Project Name</th>
 							<th scope="col" class="sort" data-sort="status">Project Description</th>
-							<th scope="col"></th>
+							<th style="width: 100px;"></th>
 						</tr>
 					</thead>
 					<tbody class="list">
@@ -31,7 +31,17 @@ require __DIR__ . '/../layouts/head.php'; ?>
 								<td><a href="<?= route('/project/detail', $projects->id) ?>"><?= $projects->project_code ?></a></td>
 								<td><?= $projects->project_name ?></td>
 								<td><?= $projects->description ?></td>
-								<td><a href="<?= route('/project/delete', $projects->id) ?>" style="color: red;"><i class="far fa-trash-alt"></i></a></td>
+								<td style="vertical-align: middle;text-align: center;">
+									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+										<i class="far fa-eye"></i>
+									</a>
+									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+										<i class="far fa-edit"></i>
+									</a>
+									<a class="text-muted mr-3" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;">
+										<i class="far fa-trash-alt"></i>
+									</a>
+								</td>
 							</tr>
 						<?php endforeach ?>
 					</tbody>
