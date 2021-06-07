@@ -285,5 +285,15 @@ function old($field)
     return Request::old($field);
 }
 
+if (!function_exists('dd')) {
+    function dd()
+    {
+        $args = func_get_args();
+        call_user_func_array('dump', $args);
+        die();
+    }
+}
+
+
 // add additional helper functions from the users
 require __DIR__ . '/../config/function.helpers.php';

@@ -46,8 +46,9 @@ use App\Core\Auth;
 		}
 	</style>
 
-	<!-- Core -->
+
 	<script src="<?= public_url('/assets/argon/vendor/jquery/dist/jquery.min.js') ?>"></script>
+	<!-- Core -->
 	<script src="<?= public_url('/assets/argon/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
 	<script src="<?= public_url('/assets/argon/vendor/js-cookie/js.cookie.js') ?>"></script>
 	<script src="<?= public_url('/assets/argon/vendor/jquery.scrollbar/jquery.scrollbar.min.js') ?>"></script>
@@ -58,8 +59,6 @@ use App\Core\Auth;
 	<!-- Optional JS -->
 	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.min.js') ?>"></script>
 	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.extension.js') ?>"></script>
-	<!-- Argon JS -->
-	<script src="<?= public_url('/assets/argon/js/argon.js?v=1.2.0') ?>"></script>
 </head>
 
 <body>
@@ -94,7 +93,7 @@ use App\Core\Auth;
 					<!-- Nav items -->
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" href="<?= route('/home') ?>">
+							<a class="nav-link" href="<?= route('/home') ?>">
 								<i class="ni ni-tv-2 text-primary"></i>
 								<span class="nav-link-text">Dashboard</span>
 							</a>
@@ -135,7 +134,7 @@ use App\Core\Auth;
 							<a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								<div class="media align-items-center">
 									<div class="media-body  ml-2  d-none d-lg-block">
-										<span class="mb-0 text-sm  font-weight-bold"><?= Auth::user('fullname') ?></span>
+										<span class="mb-0 text-sm  font-weight-bold"><?= Auth::user('fullname') ?> <i class="fas fa-caret-down ml-2"></i></span>
 									</div>
 								</div>
 							</a>

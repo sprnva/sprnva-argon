@@ -6,7 +6,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 
 <div class="row">
 	<div class="col-md-12 mb-2">
-		<a href="<?= route('/project') ?>" class="btn btn-success btn-sm text-rigth"><i class="fas fa-arrow-left"></i> Back</a>
+		<a href="<?= route('/project') ?>" class="btn btn-default btn-sm text-rigth"><i class="fas fa-arrow-left"></i> Back</a>
 	</div>
 </div>
 

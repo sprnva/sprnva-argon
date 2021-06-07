@@ -141,6 +141,16 @@ class Router
 	 */
 	protected function callAction($controller, $action, $paramerters = [])
 	{
+		$param_array = array_filter($paramerters, 'is_int', ARRAY_FILTER_USE_KEY);
+		// die(var_dump($param_array));
+
+		for ($i = 0; $i < count($param_array); $i++) {
+			$var["param" . $i] = $param_array[$i];
+		}
+
+		die(var_dump($var));
+
+
 		if (class_exists($controller)) {
 			throwException("Controller [{$controller}] already exist.", new Exception());
 		}

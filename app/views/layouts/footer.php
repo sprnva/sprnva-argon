@@ -16,6 +16,11 @@
 	</div>
 </footer>
 </div>
+
+
+<!-- Argon JS -->
+<script src="<?= public_url('/assets/argon/js/argon.js?v=1.2.0') ?>"></script>
+
 </div>
 
 </body>

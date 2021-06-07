@@ -16,7 +16,7 @@ class ProjectController
 		$user_id = Auth::user('id');
 
 		$project_datas = App::get('database')->selectLoop('*', 'projects', "user_id = '$user_id'");
-		return view('/projects/index', compact('project_datas', 'pageTitle'));
+		return view('/projects/index', compact('project_datas', 'pageTitle', 'user_id'));
 	}
 
 	public function detail($id)
@@ -80,6 +80,22 @@ class ProjectController
 		];
 
 		App::get('database')->update("projects", $update_project_form, "id = '$id'");
-		redirect('/detail/' . $id, ["Updated successfully.", 'success']);
+		redirect('/project/detail/' . $id, ["Updated successfully.", 'success']);
+	}
+
+	public function view($id, $i_d)
+	{
+		die(var_dump($id . " : " . $i_d));
+
+		$pageTitle = "Project Detail";
+		$user_id = Auth::user('id');
+
+		$project = App::get('database')->select("*", 'projects', "id='$id' AND user_id = '$user_id'");
+
+		if (!$project) {
+			redirect('/project');
+		}
+
+		return view('/projects/show', compact('project', 'pageTitle', 'i_d'));
 	}
 }
