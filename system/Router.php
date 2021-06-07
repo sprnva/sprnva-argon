@@ -141,14 +141,22 @@ class Router
 	 */
 	protected function callAction($controller, $action, $paramerters = [])
 	{
-		$param_array = array_filter($paramerters, 'is_int', ARRAY_FILTER_USE_KEY);
-		// die(var_dump($param_array));
 
-		for ($i = 0; $i < count($param_array); $i++) {
-			$var["param" . $i] = $param_array[$i];
+
+		$param_array = array_filter($paramerters, 'is_int', ARRAY_FILTER_USE_KEY);
+
+		$i = 1;
+		$test = [];
+		foreach ($param_array as $params) {
+			// ${"param" . $i} = $params;
+			$test["param" . $i] = $params; //($i == count($param_array)) ? "\$param{$i}" : "\$param{$i},";
+			$i++;
 		}
 
-		die(var_dump($var));
+		extract($test);
+
+
+		die(var_dump($test));
 
 
 		if (class_exists($controller)) {
@@ -163,6 +171,6 @@ class Router
 			throwException("{$controller} does not respond to the [{$action}] action.", new Exception());
 		}
 
-		return $controllerClass->$action($paramerters[0]);
+		return $controllerClass->$action(implode(",", $param_array));
 	}
 }
