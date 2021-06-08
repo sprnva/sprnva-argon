@@ -288,9 +288,10 @@ function old($field)
 if (!function_exists('dd')) {
     function dd()
     {
-        $args = func_get_args();
-        call_user_func_array('dump', $args);
-        die();
+        foreach (func_get_args() as $x) {
+            var_dump($x);
+        }
+        die;
     }
 }
 

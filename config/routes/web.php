@@ -1,16 +1,30 @@
 <?php
 
+use App\Core\App;
+use App\Core\Auth;
+
 // your routes goes here
-$router->get('/', ['WelcomeController@home', 'auth']);
-$router->get('/home', ['WelcomeController@home', 'auth']);
+$router->get('/', function () {
+    Auth::routeGuardian(['auth']);
+    $pageTitle = "Home";
+    return view('/home', compact('pageTitle'));
+});
+
+$router->get('/home', function () {
+    Auth::routeGuardian(['auth']);
+    $pageTitle = "Home";
+    return view('/home', compact('pageTitle'));
+});
 
 // Permissions
 $router->get('/permissions', ['PermissionsController@index', 'auth']);
 
-$router->get('/project', ['ProjectController@index', 'auth']);
-$router->get('/project/detail/{id}', ['ProjectController@detail', 'auth']);
-$router->post('/project/detail/{id}', ['ProjectController@updateDetail', 'auth']);
-$router->get('/project/add', ['ProjectController@add', 'auth']);
-$router->post('/project/add', ['ProjectController@store', 'auth']);
-$router->post('/project/delete/{id}', ['ProjectController@delete', 'auth']);
-$router->get('/project/view/{id}', ['ProjectController@view', 'auth']);
+$router->group(['prefix' => 'project', 'middleware' => ['auth']], function ($router) {
+    $router->get('/', ['ProjectController@index']);
+    $router->get('/detail/{id}', ['ProjectController@detail']);
+    $router->post('/detail/{id}', ['ProjectController@updateDetail']);
+    $router->get('/add', ['ProjectController@add']);
+    $router->post('/add', ['ProjectController@store']);
+    $router->post('/delete/{id}', ['ProjectController@delete']);
+    $router->get('/view/{id}', ['ProjectController@view']);
+});
