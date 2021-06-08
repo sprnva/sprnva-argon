@@ -83,10 +83,8 @@ class ProjectController
 		redirect('/project/detail/' . $id, ["Updated successfully.", 'success']);
 	}
 
-	public function view($id, $i_d)
+	public function view($id)
 	{
-		die(var_dump($id . " : " . $i_d));
-
 		$pageTitle = "Project Detail";
 		$user_id = Auth::user('id');
 
@@ -96,6 +94,6 @@ class ProjectController
 			redirect('/project');
 		}
 
-		return view('/projects/show', compact('project', 'pageTitle', 'i_d'));
+		return view('/projects/show', compact('project', 'pageTitle'));
 	}
 }

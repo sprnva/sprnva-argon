@@ -13,4 +13,4 @@ $router->post('/project/detail/{id}', ['ProjectController@updateDetail', 'auth']
 $router->get('/project/add', ['ProjectController@add', 'auth']);
 $router->post('/project/add', ['ProjectController@store', 'auth']);
 $router->post('/project/delete/{id}', ['ProjectController@delete', 'auth']);
-$router->get('/project/view/{id}/test/{userid}', ['ProjectController@view', 'auth']);
+$router->get('/project/view/{id}', ['ProjectController@view', 'auth']);

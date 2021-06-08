@@ -32,7 +32,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 								<td><?= $projects->project_name ?></td>
 								<td><?= $projects->description ?></td>
 								<td style="vertical-align: middle;text-align: center;">
-									<a class="text-muted mr-2" href="<?= route("/project/view/{$projects->id}/test/{$user_id}") ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="View">
+									<a class="text-muted mr-2" href="<?= route("/project/view/{$projects->id}") ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="View">
 										<i class="far fa-eye"></i>
 									</a>
 									<a class="text-muted mr-2" href="<?= route('/project/detail', $projects->id) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Edit">

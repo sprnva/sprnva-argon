@@ -18,8 +18,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
                     <thead>
                         <tr>
                             <th class="text-right p-2">PROJECT CODE :</th>
-                            <td><?= $i_d; //$project['project_code'] 
-                                ?></td>
+                            <td><?= $project['project_code'] ?></td>
                         </tr>
                         <tr>
                             <th class="text-right p-2">PROJECT NAME :</th>
