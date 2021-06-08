@@ -4,17 +4,8 @@ use App\Core\App;
 use App\Core\Auth;
 
 // your routes goes here
-$router->get('/', function () {
-    Auth::routeGuardian(['auth']);
-    $pageTitle = "Home";
-    return view('/home', compact('pageTitle'));
-});
-
-$router->get('/home', function () {
-    Auth::routeGuardian(['auth']);
-    $pageTitle = "Home";
-    return view('/home', compact('pageTitle'));
-});
+$router->get('/', ['WelcomeController@home', 'auth']);
+$router->get('/home', ['WelcomeController@home', 'auth']);
 
 // Permissions
 $router->get('/permissions', ['PermissionsController@index', 'auth']);
