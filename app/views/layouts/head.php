@@ -59,6 +59,14 @@ use App\Core\Auth;
 	<!-- Optional JS -->
 	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.min.js') ?>"></script>
 	<script src="<?= public_url('/assets/argon/vendor/chart.js/dist/Chart.extension.js') ?>"></script>
+
+	<?php
+	// this will auto include filepond css/js when adding filepond in public/assets
+	if (file_exists('public/assets/filepond')) {
+		require_once 'public/assets/filepond/filepond.php';
+	}
+	?>
+
 </head>
 
 <body>
