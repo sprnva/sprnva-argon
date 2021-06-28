@@ -28,21 +28,21 @@ require __DIR__ . '/../layouts/head.php'; ?>
 					<tbody class="list">
 						<?php foreach ($project_datas as $projects) : ?>
 							<tr>
-								<td><?= $projects->project_code ?></td>
-								<td><?= $projects->project_name ?></td>
-								<td><?= $projects->description ?></td>
+								<td><?= $projects['project_code'] ?></td>
+								<td><?= $projects['project_name'] ?></td>
+								<td><?= $projects['description'] ?></td>
 								<td style="vertical-align: middle;text-align: center;">
-									<a class="text-muted mr-2" href="<?= route("/project/view/{$projects->id}") ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="View">
+									<a class="text-muted mr-2" href="<?= route("/project/view/{$projects['id']}") ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="View">
 										<i class="far fa-eye"></i>
 									</a>
-									<a class="text-muted mr-2" href="<?= route('/project/detail', $projects->id) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Edit">
+									<a class="text-muted mr-2" href="<?= route('/project/detail', $projects['id']) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Edit">
 										<i class="far fa-edit"></i>
 									</a>
-									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects->id) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="event.preventDefault(); document.getElementById('delete-project-form').submit();">
+									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects['id']) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="event.preventDefault(); document.getElementById('delete-project-form').submit();">
 										<i class="far fa-trash-alt"></i>
 									</a>
 
-									<form id="delete-project-form" action="<?= route('/project/delete', $projects->id) ?>" method="POST" style="display:none;">
+									<form id="delete-project-form" action="<?= route('/project/delete', $projects['id']) ?>" method="POST" style="display:none;">
 										<?= csrf() ?>
 									</form>
 								</td>
