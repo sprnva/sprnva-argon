@@ -15,7 +15,7 @@ class ProjectController
 		$pageTitle = "Projects";
 		$user_id = Auth::user('id');
 
-		$project_datas = DB()->selectLoop('*', 'projects', "user_id = '$user_id'");
+		$project_datas = DB()->selectLoop('*', 'projects', "user_id = '$user_id'")->get();
 		return view('/projects/index', compact('project_datas', 'pageTitle', 'user_id'));
 	}
 
@@ -24,7 +24,7 @@ class ProjectController
 		$pageTitle = "Project Detail";
 		$user_id = Auth::user('id');
 
-		$project_details = DB()->select("*", 'projects', "id='$id' AND user_id = '$user_id'");
+		$project_details = DB()->select("*", 'projects', "id='$id' AND user_id = '$user_id'")->get();
 
 		if (!$project_details) {
 			redirect('/project');
@@ -88,7 +88,7 @@ class ProjectController
 		$pageTitle = "Project Detail";
 		$user_id = Auth::user('id');
 
-		$project = DB()->select("*", 'projects', "id='$id' AND user_id = '$user_id'");
+		$project = DB()->select("*", 'projects', "id='$id' AND user_id = '$user_id'")->get();
 
 		if (!$project) {
 			redirect('/project');
