@@ -12,7 +12,7 @@ require __DIR__ . '/../layouts/head.php'; ?>
 
 <div class="row pb-3">
 	<div class="col">
-		<?= msg('RESPONSE_MSG'); ?>
+		<?= alert_msg(); ?>
 		<div class="card">
 			<!-- Light table -->
 			<div class="table-responsive">
@@ -38,11 +38,11 @@ require __DIR__ . '/../layouts/head.php'; ?>
 									<a class="text-muted mr-2" href="<?= route('/project/detail', $projects['id']) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Edit">
 										<i class="far fa-edit"></i>
 									</a>
-									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects['id']) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="event.preventDefault(); document.getElementById('delete-project-form').submit();">
+									<a class="text-muted mr-2" href="<?= route('/project/delete', $projects['id']) ?>" style="font-size: 18px;" data-toggle="tooltip" data-placement="bottom" title="Delete" onclick="event.preventDefault(); document.getElementById('delete-project-form-<?= $projects['id'] ?>').submit();">
 										<i class="far fa-trash-alt"></i>
 									</a>
 
-									<form id="delete-project-form" action="<?= route('/project/delete', $projects['id']) ?>" method="POST" style="display:none;">
+									<form id="delete-project-form-<?= $projects['id'] ?>" action="<?= route('/project/delete', $projects['id']) ?>" method="POST" style="display:none;">
 										<?= csrf() ?>
 									</form>
 								</td>
